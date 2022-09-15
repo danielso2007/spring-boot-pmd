@@ -1,3 +1,5 @@
+[![Spring Boot PMD](https://github.com/danielso2007/spring-boot-pmd/actions/workflows/maven.yml/badge.svg)](https://github.com/danielso2007/spring-boot-pmd/actions/workflows/maven.yml)
+
 # Visão Geral
 
 O PMD é um analisador de código fonte estático (Automated code review) de código aberto que relata os problemas encontrados no código do aplicativo. O PMD inclui conjuntos de regras integrados e oferece suporte à capacidade de escrever regras personalizadas. O PMD não relata erros de compilação, pois só pode processar arquivos de origem bem formados. Os problemas relatados pelo PMD são códigos bastante ineficientes ou maus hábitos de programação, que podem reduzir o desempenho e a manutenção do programa se eles se acumularem. Ele pode analisar arquivos escritos em Java , JavaScript , Apex e Visualforce, PLSQL , Apache Velocity , XML e XSL.
