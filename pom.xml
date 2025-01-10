@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.example.pmd</groupId>
     <artifactId>spring-boot</artifactId>
-    <version>0.2.1</version>
+    <version>0.2.2</version>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot PMD</description>
     <properties>
