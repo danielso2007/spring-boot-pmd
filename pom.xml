@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.4</version>
+        <version>3.4.1</version>
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example.pmd</groupId>
@@ -16,17 +16,6 @@
     <description>Demo project for Spring Boot PMD</description>
     <properties>
         <java.version>17</java.version>
-        <maven-compiler-plugin-version>3.10.1</maven-compiler-plugin-version>
-
-        <!-- Tests -->
-        <skip-tests>false</skip-tests>
-        <junit.utReportFolder>${project.basedir}/target/test</junit.utReportFolder>
-        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
-        <maven-failsafe-plugin-version>2.22.2</maven-failsafe-plugin-version>
-
-        <!-- PMD -->
-        <maven.pmd.plugin.version>3.19.0</maven.pmd.plugin.version>
-        <maven.jxr.plugin.version>3.3.0</maven.jxr.plugin.version>
     </properties>
     <dependencies>
         <dependency>
@@ -57,7 +46,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin-version}</version>
+                <version>3.13.0</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -71,7 +60,7 @@
                 <!-- PMD source code analyzer -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>${maven.pmd.plugin.version}</version>
+                <version>3.26.0</version>
                 <configuration>
                     <linkXRef>true</linkXRef>
                     <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
@@ -112,7 +101,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>${maven-failsafe-plugin-version}</version>
+                <version>3.5.2</version>
                 <configuration>
                     <classesDirectory>${project.build.outputDirectory}</classesDirectory>
                     <!-- Força a ordem alfabética para ter uma construção reproduzível -->
@@ -142,12 +131,12 @@
                 execute the unit tests of an application -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven.surefire.plugin.version}</version>
+                <version>3.5.2</version>
                 <configuration>
                     <!-- Força a ordem alfabética para ter uma construção reproduzível -->
                     <runOrder>alphabetical</runOrder>
-                    <reportsDirectory>${junit.utReportFolder}</reportsDirectory>
-                    <skipTests>${skip-tests}</skipTests>
+                    <reportsDirectory>${project.basedir}/target/test</reportsDirectory>
+                    <skipTests>false</skipTests>
                     <workingDirectory>${project.build.directory}</workingDirectory>
                     <trimStackTrace>false</trimStackTrace>
                     <forkCount>3</forkCount>
@@ -177,13 +166,13 @@
                 <!-- Usado no PMD source code analyzer -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jxr-plugin</artifactId>
-                <version>${maven.jxr.plugin.version}</version>
+                <version>3.6.0</version>
             </plugin>
             <plugin>
                 <!-- PMD source code analyzer -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>${maven.pmd.plugin.version}</version>
+                <version>3.26.0</version>
                 <configuration>
                     <rulesets>
                         <ruleset>/rulesets/java/braces.xml</ruleset>
