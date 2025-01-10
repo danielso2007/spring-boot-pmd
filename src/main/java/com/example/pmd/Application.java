@@ -6,13 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Classe principal da aplicação.
  */
+@SuppressWarnings("PMD.UseUtilityClass")
 @SpringBootApplication
-public final class Application {
-
-    /**
-     * Construtor padrão.
-     */
-    private Application() {}
+public class Application {
 
     /**
      * Método principal do Spring-boot.
