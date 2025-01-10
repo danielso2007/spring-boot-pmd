@@ -18,6 +18,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
+        <maven-pmd-plugin-version>3.26.0</maven-pmd-plugin-version>
     </properties>
     <dependencies>
         <dependency>
@@ -61,7 +62,7 @@
                 <!-- PMD source code analyzer -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.26.0</version>
+                <version>${maven-pmd-plugin-version}</version>
                 <configuration>
                     <!-- enable incremental analysis -->
                     <analysisCache>true</analysisCache>
@@ -72,6 +73,16 @@
                     <printFailingErrors>true</printFailingErrors>
                     <minimumTokens>30</minimumTokens>
                     <targetJdk>${java.version}</targetJdk>
+                    <rulesets>
+                        <ruleset>/category/java/bestpractices.xml</ruleset>
+                        <ruleset>/category/java/codestyle.xml</ruleset>
+                        <ruleset>/category/java/design.xml</ruleset>
+                        <ruleset>/category/java/documentation.xml</ruleset>
+                        <ruleset>/category/java/errorprone.xml</ruleset>
+                        <ruleset>/category/java/multithreading.xml</ruleset>
+                        <ruleset>/category/java/performance.xml</ruleset>
+                        <ruleset>/category/java/security.xml</ruleset>
+                    </rulesets>
                 </configuration>
                 <executions>
                     <execution>
@@ -105,6 +116,7 @@
                 </executions>
             </plugin>
             <plugin>
+                <!-- O Failsafe Plugin é projetado para executar testes de integração, enquanto o Surefire Plugin é projetado para executar testes unitários -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>3.5.2</version>
@@ -133,8 +145,7 @@
                 </executions>
             </plugin>
             <plugin>
-                <!-- The Surefire Plugin is used during the test phase of the build lifecycle to
-                execute the unit tests of an application -->
+                <!-- O plugin Surefire é usado durante a fase de teste do ciclo de vida da construção para executar os testes de unidade de um aplicativo -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.2</version>
@@ -154,31 +165,19 @@
                 </configuration>
             </plugin>
         </plugins>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <!-- PMD source code analyzer -->
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-pmd-plugin</artifactId>
-                    <version>${maven.pmd.plugin.version}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
 
     <reporting>
         <plugins>
             <plugin>
-                <!-- Usado no PMD source code analyzer -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jxr-plugin</artifactId>
                 <version>3.6.0</version>
             </plugin>
             <plugin>
-                <!-- Para incluir o relatório PMD na seção de relatórios do projeto -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.26.0</version>
+                <version>${maven-pmd-plugin-version}</version>
             </plugin>
         </plugins>
     </reporting>
